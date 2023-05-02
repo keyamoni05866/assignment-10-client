@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import "./Register.css";
 import { AuthContext } from "../../providers/AuthProvider";
+
 const Register = () => {
-    const {createUser, googleProvider} = useContext(AuthContext)
+    const {createUser, googleProvider, updateUser} = useContext(AuthContext)
 
     const handleRegister = event =>{
         event.preventDefault();
@@ -16,6 +17,7 @@ const Register = () => {
         const password = form.password.value;
 
         // console.log(email, name, photoUrl, password)
+   
         createUser(email, password)
         .then(result => {
               const createdUser = result.user;
