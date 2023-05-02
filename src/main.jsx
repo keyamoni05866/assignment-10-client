@@ -8,8 +8,13 @@ import {
 import Home from './pages/Home/Home.jsx';
 import Main from './layout/Main.jsx';
 import Blog from './pages/Blog/Blog.jsx';
+import Error from './pages/Error/Error.jsx';
 
 const router = createBrowserRouter([
+     {
+      path: '*',
+      element: <Error></Error>
+     },
   {
     path: "/",
     element: <Main></Main>,
