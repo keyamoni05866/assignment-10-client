@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import "./Register.css";
+import { AuthContext } from "../../providers/AuthProvider";
 const Register = () => {
+    const {createUser, googleProvider} = useContext(AuthContext)
+
+    const handleRegister = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const photoUrl = form.photo.value;
+        const password = form.password.value;
+
+        // console.log(email, name, photoUrl, password)
+        createUser(email, password)
+        .then(result => {
+              const createdUser = result.user;
+              console.log(createdUser)
+        })
+        .catch(error => console.error(error))
+
+    }
+
+    const signUpWithGoogle = () =>{
+        googleProvider()
+        .then(result => {
+            const getUser = result.user;
+            console.log(getUser)
+        })
+        .catch(error => console.error(error))
+    }
   return (
     <div className="form-container pb-3">
       <h2 className="form-title"> Please Register!</h2>
-      <form>
+      <form onSubmit={handleRegister}>
         <div className="form-controller">
           <label htmlFor="email">Name</label>
           <input type="text" name="name" id="" />
@@ -24,7 +53,7 @@ const Register = () => {
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="" required />
         </div>
-        <input className="btn-submit" type="submit" value="Login" />
+        <input className="btn-submit" type="submit" value="Register" />
       </form>
       <p className="text-secondary fs-5 mt-3">
         <small>
@@ -35,8 +64,8 @@ const Register = () => {
         </small>
       </p>
       <div className="mt-4 mb-3">
-        <button className="btn-Google-register">
-          {" "}
+        <button className="btn-Google-register" onClick={signUpWithGoogle}>
+        
           <FaGoogle className="me-2" />
           Sign Up With Google
         </button>

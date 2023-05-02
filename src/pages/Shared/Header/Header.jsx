@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './Header.css'
+import { AuthContext } from "../../../providers/AuthProvider";
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
+  const {user, logOut} = useContext(AuthContext);
+  
+  const handleLogOut = () =>{
+    logOut()
+    .then()
+    .catch(error => console.error(error))
+  }
   return (
     <Container>
       <Navbar collapseOnSelect expand="lg"  className="header ">
@@ -18,14 +27,19 @@ const Header = () => {
              
             </Nav>
             <Nav>
-            {/* {user && 
-              <FaUserCircle style={{fontSize:"2rem"}}></FaUserCircle>
+          {user && 
+              // <FaUserCircle style={{fontSize:"2rem"}}></FaUserCircle>
+        
+                <img src={user.photoURL} className="h-0 w-25 pe-2 rounded-circle" alt="" />
+              
+               
+           
           }
              
              {user ? <Button onClick={handleLogOut} variant="secondary py-2 px-3">Log Out</Button>:
-              <Link to="/login"><Button variant="secondary py-2 px-3">Login</Button></Link>
-              } */}
                <Link to="/login"><Button className="button-login py-2 px-4">Login</Button></Link>
+              } 
+              
             </Nav>
           </Navbar.Collapse>
         </Container>
