@@ -21,26 +21,38 @@ const Header = () => {
       
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto ">
+            <Nav className="mx-auto">
                 <Link to="/" className="pe-5 text-decoration-none text-dark text-xl fs-4 ">Home</Link>
                 <Link to="/blog"  className="pe-5 text-decoration-none text-dark text-xl fs-4 ">Blog</Link>
              
             </Nav>
-            <Nav>
-          {user && 
+           
+          {/* {user && 
               // <FaUserCircle style={{fontSize:"2rem"}}></FaUserCircle>
         
-                <img src={user.photoURL} className="h-0 w-25 pe-2 rounded-circle" alt="" />
+         
               
-               
+            
            
-          }
-             
-             {user ? <Button onClick={handleLogOut} variant="secondary py-2 px-3">Log Out</Button>:
-               <Link to="/login"><Button className="button-login py-2 px-4">Login</Button></Link>
-              } 
-              
-            </Nav>
+          } */}
+        <div className="h-25 w-25">
+        { user &&
+           
+            <img src={user.photoURL} alt="" className="w-25 h-25 rounded-circle image-profile"/> 
+           
+          } 
+          </div>  
+          
+           <div className="">
+           {user ? 
+                
+                <Button onClick={handleLogOut}  className="button-login py-2 px-4 mt-2">Log Out</Button>
+                    :
+                   <Link to="/login"><Button className="button-login py-2 px-4">Login</Button></Link>
+                  } 
+                  
+           </div>
+          
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -6,23 +6,34 @@ import "./Register.css";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
-    const {createUser, googleProvider, updateUser} = useContext(AuthContext)
+    const {createUser, googleProvider, userProfileUpdate} = useContext(AuthContext)
 
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const name = form.name.value;
-        const photoUrl = form.photo.value;
+        const photo = form.photo.value;
         const password = form.password.value;
 
-        // console.log(email, name, photoUrl, password)
+        console.log(email, name,password)
    
         createUser(email, password)
         .then(result => {
               const createdUser = result.user;
-              console.log(createdUser)
+             console.log(createdUser)
+              userProfileUpdate(createdUser, {
+                displayName: name, photoURL: photo
+                  
+              })
+             
+              .then(() =>{
+        
+              })
+              .catch(error => console.error(error))
         })
+      
+     
         .catch(error => console.error(error))
 
     }
@@ -48,7 +59,7 @@ const Register = () => {
           <input type="email" name="email" id="" required />
         </div>
         <div className="form-controller">
-          <label htmlFor="email">Photo Url</label>
+          <label htmlFor="photo">Photo Url</label>
           <input type="text" name="photo" id="" />
         </div>
         <div className="form-controller">

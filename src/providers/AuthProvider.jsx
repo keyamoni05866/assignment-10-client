@@ -22,7 +22,9 @@ const AuthProvider = ({children}) => {
  const googleProvider = () =>{
     return signInWithPopup(auth, providerForGoogle) 
  }
-
+const userProfileUpdate = (loggedUser, photo) =>{
+    return updateProfile(loggedUser, photo)
+}
 
    useEffect(()=>{
   const unsubscribe =  onAuthStateChanged(auth, loggedUser =>{
@@ -39,6 +41,7 @@ const AuthProvider = ({children}) => {
         signIn,
         logOut,
         googleProvider,
+        userProfileUpdate
       
     }
 
