@@ -27,18 +27,11 @@ const Header = () => {
              
             </Nav>
            
-          {/* {user && 
-              // <FaUserCircle style={{fontSize:"2rem"}}></FaUserCircle>
         
-         
-              
-            
-           
-          } */}
         <div className="h-25 w-25">
         { user &&
            
-            <img src={user.photoURL} alt="" className="w-25 h-25 rounded-circle image-profile"/> 
+            <img src={user.photoURL}  data-toggle="tooltip" title={user?.displayName} className="w-25 h-25 rounded-circle image-profile"/> 
            
           } 
           </div>  
