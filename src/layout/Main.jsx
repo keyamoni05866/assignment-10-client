@@ -9,7 +9,7 @@ import './Main.css'
 
 const Main = () => {
     return (
-        <Container className='main'>
+        <Container >
            <Header></Header>
             <Footer></Footer>
             <Outlet></Outlet>
