@@ -1,0 +1,23 @@
+.btn-Google-register{
+    width: 200px;
+    height: 55px;
+    background: #ffff;
+    border-radius: 5px;
+    border: none;
+    margin-right: 20px;
+}
+.btn-Google-register:hover{
+    background: #f8edeb;
+}
+.btn-Github-register{
+    width: 200px;
+    height: 55px;
+   color: white;
+    border-radius: 5px;
+    border: none;
+    margin-right: 20px;
+    background: #264653;
+}
+.btn-Github-register:hover{
+    background: #527786;
+}

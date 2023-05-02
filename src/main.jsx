@@ -9,12 +9,15 @@ import Home from './pages/Home/Home.jsx';
 import Main from './layout/Main.jsx';
 import Blog from './pages/Blog/Blog.jsx';
 import Error from './pages/Error/Error.jsx';
+import Login from './pages/Login/Login.jsx';
+import Register from './pages/Register/Register.jsx';
 
 const router = createBrowserRouter([
      {
       path: '*',
       element: <Error></Error>
      },
+   
   {
     path: "/",
     element: <Main></Main>,
@@ -26,7 +29,16 @@ const router = createBrowserRouter([
       {
         path: 'blog',
         element: <Blog></Blog>
-      }
+      },
+     {
+      path: 'login',
+      element: <Login></Login>
+     },
+     {
+      path: 'register',
+      element: <Register></Register>
+     }
+  
     ]
   },
 ]);

@@ -18,7 +18,7 @@ const Error = () => {
         </h1>
         {/* <Button className="button-login py-2 px-4 text-decoration-none">  <Link to="/"> Go Home</Link></Button> */}
       
-      <Link to="/login"><Button className="button-login py-2 px-4 error-btn">Go Back Home</Button></Link>
+      <Link to="/"><Button className="button-login py-2 px-4 error-btn">Go Back Home</Button></Link>
 
       </div>
     </div>

@@ -1,0 +1,73 @@
+.form-container {
+  width: 500px;
+  height: auto;
+  background: rgba(255, 205, 178, 0.3);
+  margin: 20px auto;
+
+  border-radius: 8px;
+  padding-left: 40px;
+}
+.form-controller {
+  margin-bottom: 20px;
+}
+.form-title {
+  padding-top: 20px;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  letter-spacing: 0.0025em;
+  color: #2a414f;
+  text-align: center;
+}
+.form-controller label {
+  display: block;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.0015em;
+  color: #2a414f;
+  margin-bottom: 10px;
+}
+.form-controller input {
+  width: 415px;
+  height: 40px;
+  border: 1px solid #95a0a7;
+  border-radius: 5px;
+  font-size: 1em;
+  padding-left: 10px;
+}
+.btn-submit {
+  width: 424px;
+  height: 55px;
+  background: #eca9ac !important;
+  border-radius: 5px;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.0015em;
+  margin-top: 20px;
+  color: #FFF;
+  border: none;
+}
+.btn-Google {
+  width: 424px;
+  height: 55px;
+  background: #ffff;
+  border-radius: 5px;
+  font-size: 21px;
+  border: none;
+}
+.btn-Google:hover {
+  background: #f8edeb;
+}
+.btn-Github {
+  margin-top: 20px;
+  width: 424px;
+  height: 55px;
+  background: #264653;
+  border-radius: 5px;
+  font-size: 21px;
+  border: none;
+  color: white;
+}
+.btn-Github:hover {
+  background: #527786;
+}
