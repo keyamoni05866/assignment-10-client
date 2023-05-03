@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -6,7 +6,8 @@ import "./Register.css";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
-    const {createUser, googleProvider, userProfileUpdate} = useContext(AuthContext)
+    const {createUser, googleProvider, userProfileUpdate, githubProvider} = useContext(AuthContext)
+    const [error, setError] = useState('');
 
     const handleRegister = event =>{
         event.preventDefault();
@@ -15,13 +16,18 @@ const Register = () => {
         const name = form.name.value;
         const photo = form.photo.value;
         const password = form.password.value;
-
+        // validation
+        if(password.length < 6){
+          setError('Password should be at least 6 characters')
+        }
         console.log(email, name,password)
-   
+        form.reset();
         createUser(email, password)
         .then(result => {
               const createdUser = result.user;
              console.log(createdUser)
+             setError('')
+             
               userProfileUpdate(createdUser, {
                 displayName: name, photoURL: photo
                   
@@ -31,9 +37,11 @@ const Register = () => {
         
               })
               .catch(error => console.error(error))
+            
+              form.reset();
         })
       
-     
+       
         .catch(error => console.error(error))
 
     }
@@ -45,6 +53,15 @@ const Register = () => {
             console.log(getUser)
         })
         .catch(error => console.error(error))
+    }
+
+    const signUpWithGithub = () =>{
+      githubProvider()
+      .then(result =>{
+        const getGithubUser = result.user;
+        console.log(getGithubUser);
+      })
+      .catch(error => console.error(error))
     }
   return (
     <div className="form-container pb-3">
@@ -65,6 +82,7 @@ const Register = () => {
         <div className="form-controller">
           <label htmlFor="password">Password</label>
           <input type="password" name="password" id="" required />
+          <p className="text-danger">{error}</p>
         </div>
         <input className="btn-submit" type="submit" value="Register" />
       </form>
@@ -82,7 +100,7 @@ const Register = () => {
           <FaGoogle className="me-2" />
           Sign Up With Google
         </button>
-        <button className="btn-Github-register">
+        <button onClick={signUpWithGithub} className="btn-Github-register">
           <FaGithub className="me-2"/>Sign Up With Github
         </button>
       </div>
