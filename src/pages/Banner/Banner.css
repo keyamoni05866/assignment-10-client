@@ -8,19 +8,26 @@
     height: 550px;
 }
 .heading{
-    margin-top: 150px;
+  
     color: #E5989B;
 }
 .title{
     margin-top: 10px;
-    color: whitesmoke;
+    color: white;
     font-size: 20px;
     text-align: left;
+}
+.banner-title{
+    margin-bottom: 130px;
 }
 
  @media screen and  (max-width: 600px) {
     .heading{
             margin-top: 0;  
+        
+    }
+    .banner-title{
+        margin-bottom: 0;
         
     }
    

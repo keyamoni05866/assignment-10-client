@@ -22,7 +22,7 @@ const Home = () => {
        
             {
                 chefs.map( chef => <ChefCards
-                 key={chef.id}
+                 key={chef._id}
                  chef ={chef}
                 ></ChefCards> )
             }

@@ -5,9 +5,10 @@ import { FaThumbsUp} from 'react-icons/fa';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { Link } from 'react-router-dom';
 const ChefCards = ({chef}) => {
 
-    const {chef_name,experience,numbers_of_recipes,likes,chef_image,chef_ratings} = chef;
+    const {chef_name,experience,numbers_of_recipes,likes,chef_image,chef_ratings, _id} = chef;
     console.log(chef)
     return (
         <Container>
@@ -21,13 +22,13 @@ const ChefCards = ({chef}) => {
         <span className='ps-3'>Number of Recipes: {numbers_of_recipes}</span>
        </p>
        <p className='justify-content-center   d-flex align-items-center '> <FaThumbsUp className='fs-5  text-primary'></FaThumbsUp> <span className='me-5'>{likes}</span>
-       <Rating style={{ maxWidth: 100 }} value={Math.round(chef_ratings)} readOnly className='ms-4' />
+       <Rating style={{ maxWidth: 100 }}  value={chef_ratings} readOnly className='ms-4' />
          <span >{chef_ratings}</span>
 
        </p>
 
         
-        <Button className='btn-for-view-recipes'>View Recipes </Button>
+      <Link className='text-decoration-none text-white' to={`/recipe/${_id}`}>   <Button className='btn-for-view-recipes'>View Recipes </Button></Link>
       </Card.Body>
     </Card>
         </Container>
