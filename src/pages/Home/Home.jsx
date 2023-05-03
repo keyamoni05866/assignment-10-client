@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import ChefCards from '../ChefCards/ChefCards';
 import './Home.css'
+import ExtraSection1 from '../ExtraSection1/ExtraSection1';
+import { Container } from 'react-bootstrap';
+import ExtraSection2 from '../ExtraSection2/ExtraSection2';
 const Home = () => {
 
     const [chefs, setChefs] = useState([]);
@@ -24,7 +27,12 @@ const Home = () => {
                 ></ChefCards> )
             }
          </div>
-
+          <Container className='mt-5 mb-5'>
+          <ExtraSection1></ExtraSection1>
+          </Container>
+          <Container className='mt-5 mb-5'>
+           <ExtraSection2></ExtraSection2>
+          </Container>
         </div>
     );
 };

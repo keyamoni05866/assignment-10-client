@@ -1,0 +1,29 @@
+.about-section{
+    background: rgba(255, 205, 178, .3);
+    border-radius: 8px;
+    padding: 50px;
+
+}
+.about-content{
+    display: flex;
+}
+.about-title{
+    font-size: 20px;
+    text-align: justify;
+    padding: 0px 15px;
+    width: 75%;
+    height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .about-content{
+    flex-direction: column;
+    }
+    .about-section{
+        padding: 0;
+    }
+    .about-title{
+      width: 100%;
+    }
+    
+}
