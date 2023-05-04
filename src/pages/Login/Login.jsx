@@ -25,7 +25,10 @@ const Login = () => {
         setError("");
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) => {
+        console.error(error.message)
+        setError('Enter the correct email or password')
+      });
   };
 
   const signInWithGoogle = () => {
@@ -35,7 +38,7 @@ const Login = () => {
         console.log(getUser);
         navigate(from, { replace: true });
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => console.error(error.message));
   };
   const signInWithGithub = () => {
     githubProvider()

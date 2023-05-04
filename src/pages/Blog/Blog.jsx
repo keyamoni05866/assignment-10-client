@@ -1,16 +1,28 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-
+import { Button, Container } from "react-bootstrap";
+import { FaDownload } from "react-icons/fa";
+import Pdf from 'react-to-pdf';
 const Blog = () => {
+
+const ref = React.createRef();
   return (
     <Container>
     
-      <div >
-      <h2 className="mt-2 mb-3">
+      <div className="d-flex justify-content-center mt-3" >
+           <Pdf targetRef={ref} filename="blog.pdf">
+            {({toPdf}) => <Button  className="button-login py-2 px-4  ms-auto"
+             onClick={toPdf}
+            >Click For Download <FaDownload className="fs-6 ms-2"></FaDownload> </Button>}
+            
+            </Pdf> 
+
+      </div>
+    <div ref={ref} >
+    <h2 className="mt-2 mb-3">
         1. What is the differences between uncontrolled and controlled
         components?
       </h2>
-      </div>
+    
 
       <p className="fs-5">
         <span className="fw-bold text-decoration-underline">Answer:</span>
@@ -97,6 +109,7 @@ const Blog = () => {
         we can name the hook after the functionality it provides, and reuse it
         across multiple components.
       </p>
+    </div>
     </Container>
   );
 };

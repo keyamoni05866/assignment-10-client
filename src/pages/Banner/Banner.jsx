@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Carousel, Container } from "react-bootstrap";
 import banner1 from "../../assets/banner6.avif";
-import banner2 from "../../assets/banner5.avif";
+import banner2 from "../../assets/banner2.avif";
 import banner3 from "../../assets/banner3.avif";
 
 import "./Banner.css";
