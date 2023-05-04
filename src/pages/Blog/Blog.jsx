@@ -4,10 +4,13 @@ import { Container } from "react-bootstrap";
 const Blog = () => {
   return (
     <Container>
+    
+      <div >
       <h2 className="mt-2 mb-3">
         1. What is the differences between uncontrolled and controlled
         components?
       </h2>
+      </div>
 
       <p className="fs-5">
         <span className="fw-bold text-decoration-underline">Answer:</span>

@@ -7,13 +7,12 @@ import "react-toastify/dist/ReactToastify.css";
 import "@smastrom/react-rating/style.css";
 const SingleRecipe = ({recipe}) => {
     const {name,method,ingredients,rating} = recipe;
-    const [favourite, setFavourite] = useState()
+    const [favourite, setFavourite] = useState(false)
     console.log(recipe)
 
-    const handleFavourit = () =>{
-         if(favourite){
-            setFavourite(toast("You Have Already Bookmarked This Blog!"));
-         }
+    const handleFavourite = () =>{
+        setFavourite(true);
+        toast('Recipe added into your favourite list')
     }
     return (
         <Container className=''>
@@ -49,7 +48,7 @@ const SingleRecipe = ({recipe}) => {
             />
             <span>{rating}</span>
 </div>
-        <Button onClick={handleFavourit}  variant="primary" className='btn-for-favourite'>Add to Favourite 
+        <Button onClick={handleFavourite} disabled={favourite} variant="primary" className='btn-for-favourite'>Add to Favourite 
    
         </Button>
         <ToastContainer></ToastContainer>

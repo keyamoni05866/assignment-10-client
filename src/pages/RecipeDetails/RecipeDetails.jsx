@@ -9,7 +9,7 @@ import "@smastrom/react-rating/style.css";
 import SingleRecipe from "../SingleRecipe/SingleRecipe";
 const RecipeDetails = () => {
   const { id } = useParams();
-  // console.log(id)
+  
   const recipeAndChef = useLoaderData();
   const {
     chef_name,
@@ -21,7 +21,7 @@ const RecipeDetails = () => {
     chef_ratings,
     recipes
   } = recipeAndChef;
-  // console.log(recipes)
+  
   return (
     <Container>
       <div className="recipe-details">

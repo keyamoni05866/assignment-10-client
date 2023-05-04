@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Container, Nav, NavLink, Navbar } from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom";
 import './Header.css'
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
+
 
 const Header = () => {
   const {user, logOut} = useContext(AuthContext);
+  const location = useLocation()
+
   
-  const handleLogOut = () =>{
+ const handleLogOut = () =>{
     logOut()
     .then()
     .catch(error => console.error(error))
@@ -22,9 +24,11 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto">
-                <Link exact to="/" className="pe-5 text-decoration-none text-dark text-xl fs-4  " >Home</Link>
-                <Link to="/blog"  className="pe-5 text-decoration-none text-dark text-xl fs-4  " >Blog</Link>
-             
+         
+          
+                <Link  to="/" className="pe-5 text-decoration-none text-dark text-xl fs-4  " >Home</Link>
+                 <Link to="/blog"  className="pe-5 text-decoration-none text-dark text-xl fs-4  " >Blog</Link>
+           
             </Nav>
            
         

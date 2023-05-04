@@ -6,63 +6,59 @@ import "./Register.css";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
-    const {createUser, googleProvider, userProfileUpdate, githubProvider} = useContext(AuthContext)
-    const [error, setError] = useState('');
+  const { createUser, googleProvider, userProfileUpdate, githubProvider } =
+    useContext(AuthContext);
+  const [error, setError] = useState("");
 
-    const handleRegister = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const name = form.name.value;
-        const photo = form.photo.value;
-        const password = form.password.value;
-        // validation
-        if(password.length < 6){
-          setError('Password should be at least 6 characters')
-        }
-        console.log(email, name,password)
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+    // validation
+    if (password.length < 6) {
+      setError("Password should be at least 6 characters");
+    }
+   
+   
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+        setError("");
+
+        userProfileUpdate(createdUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {})
+          .catch((error) => console.error(error));
+
         form.reset();
-        createUser(email, password)
-        .then(result => {
-              const createdUser = result.user;
-             console.log(createdUser)
-             setError('')
-             
-              userProfileUpdate(createdUser, {
-                displayName: name, photoURL: photo
-                  
-              })
-             
-              .then(() =>{
-        
-              })
-              .catch(error => console.error(error))
-            
-              form.reset();
-        })
-      
-       
-        .catch(error => console.error(error))
+      })
 
-    }
+      .catch((error) => console.error(error));
+  };
 
-    const signUpWithGoogle = () =>{
-        googleProvider()
-        .then(result => {
-            const getUser = result.user;
-            console.log(getUser)
-        })
-        .catch(error => console.error(error))
-    }
+  const signUpWithGoogle = () => {
+    googleProvider()
+      .then((result) => {
+        const getUser = result.user;
+        console.log(getUser);
+      })
+      .catch((error) => console.error(error));
+  };
 
-    const signUpWithGithub = () =>{
-      githubProvider()
-      .then(result =>{
+  const signUpWithGithub = () => {
+    githubProvider()
+      .then((result) => {
         const getGithubUser = result.user;
         console.log(getGithubUser);
       })
-      .catch(error => console.error(error))
-    }
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="form-container pb-3">
       <h2 className="form-title"> Please Register!</h2>
@@ -96,12 +92,12 @@ const Register = () => {
       </p>
       <div className="mt-4 mb-3">
         <button className="btn-Google-register" onClick={signUpWithGoogle}>
-        
           <FaGoogle className="me-2" />
           Sign Up With Google
         </button>
         <button onClick={signUpWithGithub} className="btn-Github-register">
-          <FaGithub className="me-2"/>Sign Up With Github
+          <FaGithub className="me-2" />
+          Sign Up With Github
         </button>
       </div>
     </div>

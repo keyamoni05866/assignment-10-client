@@ -23,8 +23,8 @@ const Footer = () => {
               </div>
               <div className="col-md-2 text-dark">
                  <h5>Contact</h5>
-                  <p>+88 01750 000 000 <br/>
-                    +88 01750 000 000</p>
+                  <p>+88 01950 000 000 <br/>
+                    +88 01850 000 000</p>
                   <p>keya05866@gmail.com <br/>keya05866@gmail.com </p>
                   
               </div>
