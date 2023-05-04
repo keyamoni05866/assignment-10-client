@@ -1,0 +1,28 @@
+.recipes-info{
+    /* margin-left: 100px; */
+    margin-top: 60px;
+    position: relative;
+
+}
+.ingredient{
+    font-size: 16px;
+}
+.btn-for-favourite{
+ 
+    width: 90%;
+    background: #eca9ac !important;
+    border-radius: 5px;
+    color: #FFF;
+    border: none;
+    font-size: 20px;
+   
+
+}
+.recipe-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 18px;
+    margin-bottom: 10px;
+}
