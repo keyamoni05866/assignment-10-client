@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SingleRecipe.css'
-import { Button, Card, Container } from 'react-bootstrap';
+import { Button, Card, Container, Toast } from 'react-bootstrap';
 import { Rating } from "@smastrom/react-rating";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "@smastrom/react-rating/style.css";
 const SingleRecipe = ({recipe}) => {
     const {name,method,ingredients,rating} = recipe;
+    const [favourite, setFavourite] = useState()
     console.log(recipe)
+
+    const handleFavourit = () =>{
+         if(favourite){
+            setFavourite(toast("You Have Already Bookmarked This Blog!"));
+         }
+    }
     return (
         <Container className=''>
            <Card style={{ width: '23rem' ,height:'510px'}}>
@@ -41,7 +49,10 @@ const SingleRecipe = ({recipe}) => {
             />
             <span>{rating}</span>
 </div>
-        <Button variant="primary" className='btn-for-favourite'>Add to Favourite </Button>
+        <Button onClick={handleFavourit}  variant="primary" className='btn-for-favourite'>Add to Favourite 
+   
+        </Button>
+        <ToastContainer></ToastContainer>
    </div>
       </Card.Body>
     </Card>

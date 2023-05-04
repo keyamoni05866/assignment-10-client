@@ -13,6 +13,7 @@ import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import RecipeDetails from './pages/RecipeDetails/RecipeDetails.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
      {
@@ -30,8 +31,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'recipe/:id',
-        element: <RecipeDetails></RecipeDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`https://assignment-10-server-keyamoni05866.vercel.app/chefs/${params.id}`)
       },
       {
         path: 'blog',
