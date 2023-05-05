@@ -7,6 +7,7 @@ import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
 import SingleRecipe from "../SingleRecipe/SingleRecipe";
+import { ToastContainer } from "react-toastify";
 const RecipeDetails = () => {
   const { id } = useParams();
   
@@ -52,6 +53,7 @@ const RecipeDetails = () => {
         
       </div>
       <h2 className="chef-title text-decoration-underline">BEST RECIPE'S</h2>
+      <ToastContainer></ToastContainer>
 
       <div className='d-flex g-2   align-items-center recipes-info '>
         {

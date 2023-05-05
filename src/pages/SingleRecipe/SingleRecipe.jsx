@@ -8,14 +8,14 @@ import "@smastrom/react-rating/style.css";
 const SingleRecipe = ({recipe}) => {
     const {name,method,ingredients,rating} = recipe;
     const [favourite, setFavourite] = useState(false)
-    console.log(recipe)
+   
 
     const handleFavourite = () =>{
         setFavourite(true);
         toast('Recipe added into your favourite list')
     }
     return (
-        <Container className=''>
+        <Container className='mb-5'>
            <Card style={{ width: '23rem' ,height:'510px'}}>
          
       <Card.Body>
@@ -51,11 +51,14 @@ const SingleRecipe = ({recipe}) => {
         <Button onClick={handleFavourite} disabled={favourite} variant="primary" className='btn-for-favourite'>Add to Favourite 
    
         </Button>
-        <ToastContainer></ToastContainer>
+    
    </div>
+ 
       </Card.Body>
     </Card>
+
         </Container>
+            
     );
 };
 

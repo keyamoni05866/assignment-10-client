@@ -1,6 +1,6 @@
 import React from "react";
 import "./ExtraSection1.css";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import aboutImg from "../../assets/th.jfif";
 const ExtraSection1 = () => {
   return (
@@ -24,6 +24,8 @@ const ExtraSection1 = () => {
         <div className="about-img">
           <img src={aboutImg} alt="" className="rounded ps-4 img-fluid" />
         </div>
+        
+      
       </div>
     </Container>
   );
