@@ -15,3 +15,14 @@
 .image-profile{
     margin-left:180px;
 }
+nav a{
+    text-decoration: none;
+    color: black;
+
+}
+nav a.active{
+    text-decoration: none;
+    font-weight: bold;
+     color: #E5989B;
+ 
+}

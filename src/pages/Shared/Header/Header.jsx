@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { Button, Container, Nav, NavLink, Navbar } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Link, NavLink} from "react-router-dom";
 import "./Header.css";
 import { AuthContext } from "../../../providers/AuthProvider";
-import ActiveLink from "../../ActiveLink/ActiveLink";
+
 
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  // const location = useLocation()
+
 
   const handleLogOut = () => {
     logOut()
@@ -26,13 +26,15 @@ const Header = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mx-auto ">
-              {/* <li className="pe-5 text-decoration-none text-dark text-xl fs-4  ">
-                {" "}
-                <ActiveLink to="/">Home</ActiveLink>{" "}
-              </li> */}
-              <li className="pe-5 text-decoration-none text-dark text-xl fs-4  "><ActiveLink to="/">Home</ActiveLink></li>
-              <li className="pe-5 text-decoration-none text-dark text-xl fs-4"><ActiveLink to="/blog">Blog</ActiveLink></li>
-          
+             
+            
+          <NavLink  to="/">
+            
+         <li className="pe-5  text-xl fs-4">Home</li>
+        
+            
+            </NavLink>
+          <NavLink  to="/blog"> <li className="pe-5 text-xl fs-4">Blog</li></NavLink>
             </Nav>
 
             <div className="h-25 w-25">
